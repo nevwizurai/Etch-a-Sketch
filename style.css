@@ -1,0 +1,17 @@
+:root {
+  --create-row: 1;
+  --create-col: 1;
+}
+
+#grid-container {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-rows: repeat(var(--create-row), 1fr);
+  grid-template-columns: repeat(var(--create-col), 1fr);
+}
+
+.grid-item {
+  border: 1px solid black;
+  text-align: center;
+}
