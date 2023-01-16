@@ -8,13 +8,21 @@ const e_gridBoard = document.querySelector(".sketch");
 const e_blackMode = document.querySelector("#black-mode");
 const e_randomMode = document.querySelector("#random-mode");
 const e_eraserMode = document.querySelector("#eraser-mode");
+const e_dimensionText = document.querySelector("#dimension-text");
+const e_dimensionSlider = document.querySelector("#dimension-slider");
+const e_dimensionSet = document.querySelector("#dimension-set");
+const e_dimensionReset = document.querySelector("#dimension-reset");
 
 // Functions
 // Onload Function
 function handleLoad() {
+  makeGrid(size);
   e_blackMode.addEventListener("click", () => changeMode("black"));
   e_randomMode.addEventListener("click", () => changeMode("random"));
   e_eraserMode.addEventListener("click", () => changeMode("eraser"));
+  e_dimensionText.innerHTML = `Dimension: ${size} x ${size}`;
+  e_dimensionSlider.addEventListener("input", (e) => hChangeDimension(e));
+  e_dimensionReset.addEventListener("click", () => makeGrid(size));
 }
 
 function clearGrid() {
@@ -73,4 +81,10 @@ function changeMode(mode) {
   }
 }
 
-makeGrid(size);
+function hChangeDimension({ target }) {
+  let string = "";
+  size != target.value
+    ? (string = `Changing to: ${target.value}x${target.value}`)
+    : (string = `Dimension: ${size}x${size}`);
+  e_dimensionText.innerHTML = string;
+}

@@ -89,7 +89,30 @@ body {
 }
 
 .dimension button {
-  padding: 5px 10px;
+  padding: 5px 15px;
+  font-size: 12pt;
+  border: 0;
+  border-radius: 5px;
+}
+
+#dimension-set {
+  background-color: #28a745;
+  color: #fff;
+}
+
+#dimension-reset {
+  color: #dc3545;
+  background-color: #fff;
+  border: 1px solid #dc3545;
+}
+
+#dimension-set:hover {
+  background-color: #1e7532;
+}
+
+#dimension-reset:hover {
+  background-color: #dc3545;
+  color: #fff;
 }
 
 .dimension-button {
