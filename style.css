@@ -1,6 +1,10 @@
 /* Font import */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,300&display=swap");
 
+:root {
+  --num-dimension: 1;
+}
+
 body {
   font-family: "Robot", sans-serif;
   margin: 0;
@@ -93,9 +97,16 @@ body {
   justify-content: space-between;
 }
 
-/* Temp */
 .sketch {
   width: 500px;
   height: 500px;
   border: 1px solid black;
+  display: grid;
+  grid-template-rows: repeat(var(--num-size), 1fr);
+  grid-template-columns: repeat(var(--num-size), 1fr);
+}
+
+.grid-item {
+  border: 1px solid #000;
+  box-sizing: border-box;
 }
