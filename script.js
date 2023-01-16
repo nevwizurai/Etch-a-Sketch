@@ -23,6 +23,7 @@ function handleLoad() {
   e_dimensionText.innerHTML = `Dimension: ${size} x ${size}`;
   e_dimensionSlider.addEventListener("input", (e) => hChangeDimension(e));
   e_dimensionReset.addEventListener("click", () => makeGrid(size));
+  e_dimensionSet.addEventListener("click", () => hSetDimension());
 }
 
 function clearGrid() {
@@ -87,4 +88,13 @@ function hChangeDimension({ target }) {
     ? (string = `Changing to: ${target.value}x${target.value}`)
     : (string = `Dimension: ${size}x${size}`);
   e_dimensionText.innerHTML = string;
+}
+
+function hSetDimension() {
+  let newDimension = parseInt(e_dimensionSlider.value);
+  if (size === newDimension) return;
+
+  size = newDimension;
+  makeGrid(size);
+  e_dimensionText.innerHTML = `Dimension: ${size}x${size}`;
 }
